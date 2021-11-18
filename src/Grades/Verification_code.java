@@ -17,28 +17,30 @@ public class Verification_code {
 
         String strurl="https://www.tooopen.com/tag/5b6be7eeebc8b20da80a4f04.aspx";
         String Login_html="";
-        String regStr="https://img08.tooopen.com/.......................................";// 正则表达式\"[(https)].+?\"
+        // 正则表达式\"[(https)].+?\
+        String regStr="https://img08.tooopen.com/.......................................";
 
         try {
             URL url=new URL(strurl);
             URLConnection conn=url.openConnection();
-            conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36");//伪装连接
+            conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36");
             //Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36
             InputStream is=conn.getInputStream();
-
-//                FileOutputStream fos=new FileOutputStream("html.txt"); //下载源码
-//                byte[] buffer =new byte[1000000];
-//                int len;
-//                while((len=is.read(buffer))!=-1){
-//                    fos.write(buffer,0,len);
-//                }
-
+/*
+                FileOutputStream fos=new FileOutputStream("html.txt"); //下载源码
+                byte[] buffer =new byte[1000000];
+                int len;
+                while((len=is.read(buffer))!=-1){
+                    fos.write(buffer,0,len);
+                }
+*/
             BufferedReader br=new BufferedReader(new InputStreamReader(is));
             String line=null;
             while((line=br.readLine())!=null){
-                Login_html+=line;
+                Login_html += line;
             }
-            //System.out.println(Login_html);输出源码
+            //输出源码
+            //System.out.println(Login_html);
 
 
             Pattern pattern=Pattern.compile(regStr);
@@ -48,7 +50,8 @@ public class Verification_code {
                 if (z == 10) {
                     break;
                 }
-                System.out.println(matcher.group());  //图片链接
+                //图片链接
+                System.out.println(matcher.group());
                 new Download(matcher.group(), (int)(1+Math.random()*(9999-1000+1)));
                 z++;
 
