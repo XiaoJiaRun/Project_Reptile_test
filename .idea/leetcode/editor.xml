@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="LeetcodeEditor">
+    <option name="projectConfig">
+      <map>
+        <entry key="$PROJECT_DIR$/../leetcode_go/leetcode/editor/cn/P37_SudokuSolver .java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/../leetcode_go/leetcode/editor/cn/doc/content/P37_SudokuSolver .md" />
+              <option name="path" value="$PROJECT_DIR$/../leetcode_go/leetcode/editor/cn/P37_SudokuSolver .java" />
+              <option name="questionId" value="37" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
