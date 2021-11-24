@@ -14,19 +14,21 @@ public class Download {
         String Url=str;
         int responsecode = 0;
         URL url=new URL(Url);
-        URLConnection conn = (HttpURLConnection)url.openConnection();
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
         //伪装连接
         //conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36)")
         //Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36
         //HttpURLConnection urlConnection=(HttpURLConnection) url.openConnection();
-        conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36");
+
+        conn.setRequestProperty("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36");
 
         //获取服务器响应代码
         responsecode= ((HttpURLConnection) conn).getResponseCode();
         //验证
         if(responsecode == 200){
             InputStream is=conn.getInputStream();
-            FileOutputStream fos=new FileOutputStream(  k + ".jpg");
+            FileOutputStream fos=new FileOutputStream("Download/test/" + k +".jpg");
             byte[] buffer =new byte[1000000];
             int len;
             while((len=is.read(buffer))!=-1){

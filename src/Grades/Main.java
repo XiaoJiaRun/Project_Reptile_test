@@ -10,8 +10,9 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        new Verification_code();
-        System.out.println("one");
+        System.out.println("start");
+        Verification_code code = new Verification_code();
+        System.out.println("end");
 
     }
 }
