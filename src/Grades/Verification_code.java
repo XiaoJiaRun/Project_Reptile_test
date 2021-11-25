@@ -73,7 +73,7 @@ public class Verification_code {
                 System.out.println(matcher.group());
                 //批量
                 //(int)(1+Math.random()*(9999-1000+1))) 随机数
-                new Download(matcher.group(), z);
+                new Download(matcher.group(), z, name);
                 z++;
 
             }
@@ -89,18 +89,3 @@ public class Verification_code {
 
 }
 
-/*
-class Panel extends JPanel{   //窗口
-        Image img;
-        public Panel(Image img){
-            this.img = img;
-            repaint();
-        }
-        protected void paintComponent(Graphics g) {
-
-            super.paintComponent(g);
-            g.drawImage(img,0 ,0 , getWidth(), getHeight(), this);
-        }
-
-}
-*/

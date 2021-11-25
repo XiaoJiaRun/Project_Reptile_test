@@ -10,7 +10,7 @@ import java.net.URLConnection;
 
 public class Download {
 
-    public   Download(String str, int k) throws IOException {
+    public   Download(String str, int k, String name) throws IOException {
         String Url=str;
         int responsecode = 0;
         URL url=new URL(Url);
@@ -27,8 +27,17 @@ public class Download {
         responsecode= ((HttpURLConnection) conn).getResponseCode();
         //验证
         if(responsecode == 200){
+            //创建文件夹
+            File saveFile = new File("Download/"+name+"/",name + k + ".jpg");
+            if(!saveFile.getParentFile().exists()){
+                saveFile.getParentFile().mkdirs();
+            }
+            if(!saveFile.exists()){
+                saveFile.createNewFile();
+            }
+
+            FileOutputStream fos = new FileOutputStream(saveFile);
             InputStream is=conn.getInputStream();
-            FileOutputStream fos=new FileOutputStream("Download/test/" + k +".jpg");
             byte[] buffer =new byte[1000000];
             int len;
             while((len=is.read(buffer))!=-1){
