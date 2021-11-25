@@ -13,14 +13,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Verification_code {
-    public Verification_code() throws IOException {
+    public Verification_code(String name) throws IOException {
 
-        String strurl= "https://image.baidu.com/search/index?ct=201326592&z=3&tn=baiduimage&ipn=r&word=%E7%BE%8E%E5%A5%B3&pn=0&istype=2&ie=utf-8&oe=utf-8&cl=2&lm=-1&st=-1&fr=&fmq=1637764500816_R&ic=&se=&sme=&width=0&height=0&face=0&hd=&latest=&copyright=";
+        String strurl= "https://image.baidu.com/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=&sf=1&fmq=1637850740341_R&pv=&ic=&nc=1&z=&hd=&latest=&copyright=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&dyTabStr=MCwzLDEsNiw0LDIsNSw3LDgsOQ==&ie=utf-8&ctd=1637850740342^00_308X929&sid=&word=" + name;
         String Login_html="";
         // 正则表达式\"[(https)].+?\
-        String regStr="https://img0.baidu.com/it/u=%fm=26&fmt=auto";
-
-        //https://img0.baidu.com/it/u=1119515913,3748293383&fm=26&fmt=auto
+        String regStr="https://img1.baidu.com/it/u=[0-9]*,[0-9]*&fm=26&fmt=auto";
+        //http://([w-]+.)+[w-]+(/[w- ./?%&=]*)?
+        //https://img0.baidu.com/it/u=([w-]+.)+[w-]+(/[w- ./?%&=]*)?
         //https://img1.baidu.com/it/u=515667589,262650834&fm=26&fmt=auto
 
         try {
@@ -31,7 +31,8 @@ public class Verification_code {
 
             //请求头 很重要
             conn.setRequestProperty("accept","text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9");
-            conn.setRequestProperty("accept-encoding","gzip, deflate, br");
+            //源码未知错误会乱码
+            //conn.setRequestProperty("accept-encoding","gzip, deflate, br");
             conn.setRequestProperty("accept-language","zh-CN,zh;q=0.9");
             conn.setRequestProperty("cache-control","max-age=0");
             conn.setRequestProperty("connection","keep-alive");
@@ -57,7 +58,7 @@ public class Verification_code {
                 Login_html += line;
             }
             //输出源码
-            System.out.println(Login_html);
+            //System.out.println(Login_html);
 
 
             Pattern pattern = Pattern.compile(regStr);
@@ -65,13 +66,14 @@ public class Verification_code {
             //System.out.println("正则表达式后的源码" + matcher);
             int z = 0;
             while(matcher.find()) {
-                if (z == 10) {
+                if (z == 30 ) {
                     break;
                 }
                 //图片链接
                 System.out.println(matcher.group());
                 //批量
-                new Download(matcher.group(), (int)(1+Math.random()*(9999-1000+1)));
+                //(int)(1+Math.random()*(9999-1000+1))) 随机数
+                new Download(matcher.group(), z);
                 z++;
 
             }
