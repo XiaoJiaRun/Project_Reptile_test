@@ -2,17 +2,23 @@ package Grades;
 
 import org.junit.Test;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Test_Download {
     @Test
     public void Test() {
-        String str = "https://img2.baidu.com/it/u=2095658351,1467955612&fm=26&fmt=auto";
+        String name;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("start");
+        System.out.println("关键字");
+        name = sc.next();
         try {
-            Download down = new Download(str, 9999,"测试");
+            Verification code = new Verification(name);
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("Test.down出错了");
+            System.out.println("test获取链接错误。");
         }
+        System.out.println("end");
 
     }
 }

@@ -28,7 +28,7 @@ public class Download {
         //验证
         if(responsecode == 200){
             //创建文件夹
-            File saveFile = new File("Download/"+name+"/",name + k + ".jpg");
+            File saveFile = new File("Download/"+name+"/",k + ".jpg");
             if(!saveFile.getParentFile().exists()){
                 saveFile.getParentFile().mkdirs();
             }
@@ -50,21 +50,6 @@ public class Download {
             System.out.println("第" + k + "张出错。");
         }
 
-/*      //打开窗口
-        urlConnection.disconnect();
-        File file = new File("two.jpg");
-        BufferedImage bufImg = null;
-        bufImg = ImageIO.read(file);
-
-        Panel pane = new Panel(bufImg);
-        JFramxe frame = new JFrame();
-
-        frame.add(pane);
-        frame.setSize(800,600);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-*/
     }
 }
 
