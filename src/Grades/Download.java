@@ -28,7 +28,7 @@ public class Download {
         //验证
         if(responsecode == 200){
             //创建文件夹
-            File saveFile = new File("Download/"+name+"/",k + ".jpg");
+            File saveFile = new File("download/"+name+"/",name + k + ".jpg");
             if(!saveFile.getParentFile().exists()){
                 saveFile.getParentFile().mkdirs();
             }
@@ -43,8 +43,10 @@ public class Download {
             while((len=is.read(buffer))!=-1){
                 fos.write(buffer,0,len);
             }
+
             is.close();
             fos.close();
+
             System.out.println("第" + k + "张成功。");
         }else{
             System.out.println("第" + k + "张出错。");

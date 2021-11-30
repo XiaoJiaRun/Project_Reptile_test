@@ -13,9 +13,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Verification {
-    public Verification(String name) throws IOException {
 
-        String strurl= "https://image.baidu.com/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=&sf=1&fmq=1637850740341_R&pv=&ic=&nc=1&z=&hd=&latest=&copyright=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&dyTabStr=MCwzLDEsNiw0LDIsNSw3LDgsOQ==&ie=utf-8&ctd=1637850740342^00_308X929&sid=&word="+"name";
+    public Verification(String name) {
+
+        String strurl= "https://image.baidu.com/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=&sf=1&fmq=1637850740341_R&pv=&ic=&nc=1&z=&hd=&latest=&copyright=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&dyTabStr=MCwzLDEsNiw0LDIsNSw3LDgsOQ==&ie=utf-8&ctd=1637850740342^00_308X929&sid=&word="+name;
         String Login_html="";
         // 正则表达式\"[(https)].+?\
         String regStr="https://img1.baidu.com/it/u=[0-9]*,[0-9]*&fm=26&fmt=auto";
@@ -38,9 +39,7 @@ public class Verification {
             conn.setRequestProperty("connection","keep-alive");
             conn.setRequestProperty("sec-ch-ua","\"Google Chrome\";v=\"95\", \"Chromium\";v=\"95\", \";Not A Brand\";v=\"99\"");
             conn.setRequestProperty("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36");
-
             conn.connect();
-
 
             InputStream is=conn.getInputStream();
 
@@ -52,32 +51,32 @@ public class Verification {
 //                fos.write(buffer,0,len);
 //            }
 
-
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
             String line = null;
             while((line = br.readLine())!= null) {
                 Login_html += line;
             }
 
-
-
             // System.out.println(Login_html);  // 输出源码
-
 
             Pattern pattern = Pattern.compile(regStr);
             Matcher matcher = pattern.matcher(Login_html);
             //System.out.println("正则表达式后的源码" + matcher);
             int z = 0;
+            String str1 = "";
             while(matcher.find()) {
-                z++;
                 //图片链接
-                System.out.println(matcher.group());
                 //批量
                 //(int)(1+Math.random()*(9999-1000+1))) 随机数
-                Download download = new Download(matcher.group(), z, name);
-
+                if(!str1.equals(matcher.group())) {
+                    z++;
+                    str1 = matcher.group();
+                    System.out.println(matcher.group());
+                    Download download = new Download(matcher.group(), z, name);
+                }else{
+                    continue;
+                }
             }
-
             br.close();
         } catch (Exception e) {
             System.out.println("爬取源码被拦截或发生未知错误");

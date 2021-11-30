@@ -15,7 +15,10 @@ import java.util.Scanner;
 
 public class MainWindow extends JFrame {
 
+    private String Key = "";
     public static void main(String[] args) {
+
+
         JFrame mainFrame = new JFrame("主窗口");
 
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,19 +41,27 @@ public class MainWindow extends JFrame {
         button.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                String key = jTextField.getText();
-                System.out.println(key);
                 System.out.println("start");
-                try {
-                    Verification code = new Verification(Key);
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                    System.out.println("获取链接错误。");
-                }
+                 String key = jTextField.getText();
+                new Verification(key);
                 System.out.println("end");
 
             }
         });
+            /*测试
+            Scanner sc = new Scanner(System.in);
+            System.out.println("start");
+            System.out.println("关键字");
+            String name = sc.next();
+            try {
+                new Verification(name);
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("test获取链接错误。");
+            }
+            System.out.println("end");
+
+            */
 
     }
 
