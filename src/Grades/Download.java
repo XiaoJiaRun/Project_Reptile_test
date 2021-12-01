@@ -47,9 +47,9 @@ public class Download {
             is.close();
             fos.close();
 
-            System.out.println("第" + k + "张成功。");
+            //System.out.println("第" + k + "张成功。");
         }else{
-            System.out.println("第" + k + "张出错。");
+            //System.out.println("第" + k + "张出错。");
         }
 
     }

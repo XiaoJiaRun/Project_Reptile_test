@@ -25,13 +25,13 @@ public class Search extends JPanel{
 
         label = new JLabel("搜索");
         label.setSize(300,200);
-        Font labelFont = new Font("仿宋", Font.PLAIN, 30);
+        Font labelFont = new Font("宋体", Font.PLAIN, 30);
         label.setFont(labelFont);
 
         jTextField = new JTextField();
         jTextField.setColumns(105);
         jTextField.setPreferredSize(new Dimension(900,50));
-        Font jTextFieldFont = new Font("仿宋", Font.PLAIN, 22);
+        Font jTextFieldFont = new Font("宋体", Font.PLAIN, 22);
         jTextField.setFont(jTextFieldFont);
 
         jButton = new JButton("确认");

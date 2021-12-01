@@ -14,6 +14,12 @@ import java.util.regex.Pattern;
 
 public class Verification {
 
+    private int number;
+
+    public int getNumber() {
+        return number;
+    }
+
     public Verification(String name) {
 
         String strurl= "https://image.baidu.com/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=&sf=1&fmq=1637850740341_R&pv=&ic=&nc=1&z=&hd=&latest=&copyright=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&dyTabStr=MCwzLDEsNiw0LDIsNSw3LDgsOQ==&ie=utf-8&ctd=1637850740342^00_308X929&sid=&word="+name;
@@ -62,17 +68,17 @@ public class Verification {
             Pattern pattern = Pattern.compile(regStr);
             Matcher matcher = pattern.matcher(Login_html);
             //System.out.println("正则表达式后的源码" + matcher);
-            int z = 0;
+            number = 0;
             String str1 = "";
             while(matcher.find()) {
                 //图片链接
                 //批量
                 //(int)(1+Math.random()*(9999-1000+1))) 随机数
                 if(!str1.equals(matcher.group())) {
-                    z++;
+                    number++;
                     str1 = matcher.group();
                     //System.out.println(matcher.group());
-                    Download download = new Download(matcher.group(), z, name);
+                    Download download = new Download(matcher.group(), number, name);
                 }else{
                     continue;
                 }

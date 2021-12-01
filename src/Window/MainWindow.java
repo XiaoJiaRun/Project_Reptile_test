@@ -3,6 +3,7 @@ package Window;
 import Grades.Verification;
 
 import javax.swing.*;
+import javax.swing.plaf.FontUIResource;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,9 +30,10 @@ public class MainWindow extends JFrame {
         Search search = new Search();
         mainFrame.add(search.panelSearch());
 
+        CheckBox checkBox = new CheckBox();
+        mainFrame.add(checkBox.CheckBox());
+
         mainFrame.setVisible(true);
-
-
 
         //按钮触发事件
         String Key = "";
@@ -41,9 +43,17 @@ public class MainWindow extends JFrame {
         button.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                //System.out.println("start");
+
                 String key = jTextField.getText();
-                new Verification(key);
+                Verification verification = new Verification(key);
+
+                // 设置按钮显示效果
+                UIManager.put("OptionPane.buttonFont", new FontUIResource(new Font("宋体", Font.PLAIN, 20)));
+                // 设置文本显示效果
+                UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("宋体", Font.PLAIN, 20)));
+
+                JOptionPane.showMessageDialog(null, "下载成功" + verification.getNumber() + "张。");
+
                 //System.out.println("end");
 
             }
