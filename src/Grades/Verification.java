@@ -71,7 +71,7 @@ public class Verification {
                 if(!str1.equals(matcher.group())) {
                     z++;
                     str1 = matcher.group();
-                    System.out.println(matcher.group());
+                    //System.out.println(matcher.group());
                     Download download = new Download(matcher.group(), z, name);
                 }else{
                     continue;

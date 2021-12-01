@@ -41,10 +41,10 @@ public class MainWindow extends JFrame {
         button.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("start");
-                 String key = jTextField.getText();
+                //System.out.println("start");
+                String key = jTextField.getText();
                 new Verification(key);
-                System.out.println("end");
+                //System.out.println("end");
 
             }
         });
