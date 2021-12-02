@@ -20,7 +20,7 @@ public class MainWindow extends JFrame {
     public static void main(String[] args) {
 
 
-        JFrame mainFrame = new JFrame("主窗口");
+        JFrame mainFrame = new JFrame("Java爬虫学习");
 
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setSize(1366,768);
@@ -45,17 +45,70 @@ public class MainWindow extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 String key = jTextField.getText();
-                Verification verification = new Verification(key);
 
-                // 设置按钮显示效果
-                UIManager.put("OptionPane.buttonFont", new FontUIResource(new Font("宋体", Font.PLAIN, 20)));
-                // 设置文本显示效果
-                UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("宋体", Font.PLAIN, 20)));
+                boolean a = checkBox.getJra1().isSelected();
+                boolean b = checkBox.getJra2().isSelected();
+                boolean c = checkBox.getJra3().isSelected();
 
-                JOptionPane.showMessageDialog(null, "下载成功" + verification.getNumber() + "张。");
+                if(a) {
+                    //10
+                    Verification verification = new Verification(key,0,10);
+                    // 设置按钮显示效果
+                    UIManager.put("OptionPane.buttonFont", new FontUIResource(new Font("宋体", Font.PLAIN, 20)));
+                    // 设置文本显示效果
+                    UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("宋体", Font.PLAIN, 20)));
 
-                //System.out.println("end");
+                    JOptionPane.showMessageDialog(null, "下载成功" + verification.getNumber() + "张。");
 
+                    //System.out.println("end");
+                }else if(b) {
+                    //20
+                    Verification verification = new Verification(key,0,30);
+                    // 设置按钮显示效果
+                    UIManager.put("OptionPane.buttonFont", new FontUIResource(new Font("宋体", Font.PLAIN, 20)));
+                    // 设置文本显示效果
+                    UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("宋体", Font.PLAIN, 20)));
+
+                    JOptionPane.showMessageDialog(null, "下载成功" + verification.getNumber() + "张。");
+
+                    //System.out.println("end");
+                }else if(c) {
+                    //30
+                    Verification verification = new Verification(key,0,50);
+                    // 设置按钮显示效果
+                    UIManager.put("OptionPane.buttonFont", new FontUIResource(new Font("宋体", Font.PLAIN, 20)));
+                    // 设置文本显示效果
+                    UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("宋体", Font.PLAIN, 20)));
+
+                    JOptionPane.showMessageDialog(null, "下载成功" + verification.getNumber() + "张。");
+
+                    //System.out.println("end");
+                }else if(checkBox.getTextFieldStart().equals("") && checkBox.getTextFieldEnd().equals("")) {
+                    //start end
+                    int start = Integer.valueOf(String.valueOf(checkBox.getTextFieldStart())).intValue();
+                    int end = Integer.valueOf(String.valueOf(checkBox.getTextFieldEnd())).intValue();
+
+                    Verification verification = new Verification(key, start, end);
+                    // 设置按钮显示效果
+                    UIManager.put("OptionPane.buttonFont", new FontUIResource(new Font("宋体", Font.PLAIN, 20)));
+                    // 设置文本显示效果
+                    UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("宋体", Font.PLAIN, 20)));
+
+                    JOptionPane.showMessageDialog(null, "下载成功" + verification.getNumber() + "张。");
+
+                    //System.out.println("end");
+                }else{
+                    //第一张
+                    Verification verification = new Verification(key,0,1);
+                    // 设置按钮显示效果
+                    UIManager.put("OptionPane.buttonFont", new FontUIResource(new Font("宋体", Font.PLAIN, 20)));
+                    // 设置文本显示效果
+                    UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("宋体", Font.PLAIN, 20)));
+
+                    JOptionPane.showMessageDialog(null, "下载成功" + verification.getNumber() + "张。");
+
+                    //System.out.println("end");
+                }
             }
         });
             /*测试

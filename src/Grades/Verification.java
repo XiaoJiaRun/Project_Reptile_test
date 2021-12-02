@@ -20,8 +20,8 @@ public class Verification {
         return number;
     }
 
-    public Verification(String name) {
-
+    public Verification(String name, int start, int end) {
+        //https://image.baidu.com/search/flip?tn=baiduimage&ie=utf-8&word= &pn=
         String strurl= "https://image.baidu.com/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=&sf=1&fmq=1637850740341_R&pv=&ic=&nc=1&z=&hd=&latest=&copyright=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&dyTabStr=MCwzLDEsNiw0LDIsNSw3LDgsOQ==&ie=utf-8&ctd=1637850740342^00_308X929&sid=&word="+name;
         String Login_html="";
         // 正则表达式\"[(https)].+?\

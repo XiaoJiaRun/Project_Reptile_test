@@ -19,7 +19,7 @@ public class Search extends JPanel{
 
     public JPanel panelSearch() {
         JPanel jPanel = new JPanel();
-        jPanel.setPreferredSize(new Dimension(1366,50));
+        jPanel.setPreferredSize(new Dimension(1366,60));
         //jPanel.setBackground(Color.red);
         jPanel.setLayout(new FlowLayout(FlowLayout.LEFT,5,10));
 
