@@ -52,7 +52,8 @@ public class MainWindow extends JFrame {
 
                 if(a) {
                     //10
-                    Verification verification = new Verification(key,0,10);
+                    Verification verification = new Verification();
+                    verification.Loop(key, 0, 10);
                     // 设置按钮显示效果
                     UIManager.put("OptionPane.buttonFont", new FontUIResource(new Font("宋体", Font.PLAIN, 20)));
                     // 设置文本显示效果
@@ -63,7 +64,8 @@ public class MainWindow extends JFrame {
                     //System.out.println("end");
                 }else if(b) {
                     //20
-                    Verification verification = new Verification(key,0,30);
+                    Verification verification = new Verification();
+                    verification.Loop(key, 0, 20);
                     // 设置按钮显示效果
                     UIManager.put("OptionPane.buttonFont", new FontUIResource(new Font("宋体", Font.PLAIN, 20)));
                     // 设置文本显示效果
@@ -74,7 +76,8 @@ public class MainWindow extends JFrame {
                     //System.out.println("end");
                 }else if(c) {
                     //30
-                    Verification verification = new Verification(key,0,50);
+                    Verification verification = new Verification();
+                    verification.Loop(key, 0, 50);
                     // 设置按钮显示效果
                     UIManager.put("OptionPane.buttonFont", new FontUIResource(new Font("宋体", Font.PLAIN, 20)));
                     // 设置文本显示效果
@@ -88,7 +91,8 @@ public class MainWindow extends JFrame {
                     int start = Integer.valueOf(String.valueOf(checkBox.getTextFieldStart())).intValue();
                     int end = Integer.valueOf(String.valueOf(checkBox.getTextFieldEnd())).intValue();
 
-                    Verification verification = new Verification(key, start, end);
+                    Verification verification = new Verification();
+                    verification.Loop(key, start, end);
                     // 设置按钮显示效果
                     UIManager.put("OptionPane.buttonFont", new FontUIResource(new Font("宋体", Font.PLAIN, 20)));
                     // 设置文本显示效果
@@ -99,7 +103,8 @@ public class MainWindow extends JFrame {
                     //System.out.println("end");
                 }else{
                     //第一张
-                    Verification verification = new Verification(key,0,1);
+                    Verification verification = new Verification();
+                    verification.Loop(key, 0, 1);
                     // 设置按钮显示效果
                     UIManager.put("OptionPane.buttonFont", new FontUIResource(new Font("宋体", Font.PLAIN, 20)));
                     // 设置文本显示效果

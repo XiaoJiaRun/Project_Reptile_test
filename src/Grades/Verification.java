@@ -14,15 +14,26 @@ import java.util.regex.Pattern;
 
 public class Verification {
 
-    private int number;
+    private int number = 0;
 
     public int getNumber() {
         return number;
     }
 
-    public Verification(String name, int start, int end) {
-        //https://image.baidu.com/search/flip?tn=baiduimage&ie=utf-8&word= &pn=
-        String strurl= "https://image.baidu.com/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=&sf=1&fmq=1637850740341_R&pv=&ic=&nc=1&z=&hd=&latest=&copyright=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&dyTabStr=MCwzLDEsNiw0LDIsNSw3LDgsOQ==&ie=utf-8&ctd=1637850740342^00_308X929&sid=&word="+name;
+    public void Loop(String name, int start, int end){
+
+        for(int i = start; i < end; i++) {
+            String strurl = "https://image.baidu.com/search/flip?tn=baiduimage&ie=utf-8&word=" + name +"&pn=" + i;
+            this.VerificationGo(strurl, name);
+        }
+
+    }
+
+    public void VerificationGo(String strurl, String name){
+
+
+        //String strurl= "https://image.baidu.com/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=&sf=1&fmq=1637850740341_R&pv=&ic=&nc=1&z=&hd=&latest=&copyright=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&dyTabStr=MCwzLDEsNiw0LDIsNSw3LDgsOQ==&ie=utf-8&ctd=1637850740342^00_308X929&sid=&word="+name;
+
         String Login_html="";
         // 正则表达式\"[(https)].+?\
         String regStr="https://img1.baidu.com/it/u=[0-9]*,[0-9]*&fm=26&fmt=auto";
@@ -68,7 +79,6 @@ public class Verification {
             Pattern pattern = Pattern.compile(regStr);
             Matcher matcher = pattern.matcher(Login_html);
             //System.out.println("正则表达式后的源码" + matcher);
-            number = 0;
             String str1 = "";
             while(matcher.find()) {
                 //图片链接
