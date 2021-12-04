@@ -1,14 +1,8 @@
 package Grades;
 
-import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,10 +15,27 @@ public class Verification {
     }
 
     public void Loop(String name, int start, int end){
+        int len = 0;
+        int gsm = 100;
+        String[] gsm3 = new String[4];
+        gsm3[1] = "64";
+        gsm3[2] = "3c";
+        gsm3[3] = "50";
 
-        for(int i = start; i < end; i++) {
-            String strurl = "https://image.baidu.com/search/flip?tn=baiduimage&ie=utf-8&word=" + name +"&pn=" + i;
-            this.VerificationGo(strurl, name);
+        for(int i = start; i <= end; i++) {
+            if(i <= 3) {
+                String strurl = "https://image.baidu.com/search/flip?tn=baiduimage&ie=utf-8&word=" + name +"&pn="+ len + "&gsm=" + gsm3[i] + "&ct=&ic=0&lm=-1&width=0&height=0";
+                len += 20;
+                this.VerificationGo(strurl, name);
+            }else {
+                String strurl = "https://image.baidu.com/search/flip?tn=baiduimage&ie=utf-8&word=" + name +"&pn="+ len + "&gsm=" + Integer.toHexString(gsm) + "&ct=&ic=0&lm=-1&width=0&height=0";
+                len += 20;
+                gsm += 20;
+                this.VerificationGo(strurl, name);
+            }
+           // String strurl = "https://image.baidu.com/search/flip?tn=baiduimage&ie=utf-8&word=" + name +"&pn=" + len;
+
+
         }
 
     }

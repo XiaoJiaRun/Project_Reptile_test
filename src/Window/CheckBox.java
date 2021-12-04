@@ -6,10 +6,7 @@ package Window;
 
 
 import javax.swing.*;
-import javax.swing.text.JTextComponent;
 import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 public class CheckBox {
 

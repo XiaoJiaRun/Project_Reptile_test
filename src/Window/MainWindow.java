@@ -7,8 +7,6 @@ import javax.swing.plaf.FontUIResource;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.util.Scanner;
 
 /**
  * @author JiaLess
@@ -53,7 +51,7 @@ public class MainWindow extends JFrame {
                 if(a) {
                     //10
                     Verification verification = new Verification();
-                    verification.Loop(key, 0, 10);
+                    verification.Loop(key, 1, 10);
                     // 设置按钮显示效果
                     UIManager.put("OptionPane.buttonFont", new FontUIResource(new Font("宋体", Font.PLAIN, 20)));
                     // 设置文本显示效果
@@ -65,7 +63,7 @@ public class MainWindow extends JFrame {
                 }else if(b) {
                     //20
                     Verification verification = new Verification();
-                    verification.Loop(key, 0, 20);
+                    verification.Loop(key, 1, 20);
                     // 设置按钮显示效果
                     UIManager.put("OptionPane.buttonFont", new FontUIResource(new Font("宋体", Font.PLAIN, 20)));
                     // 设置文本显示效果
@@ -77,7 +75,7 @@ public class MainWindow extends JFrame {
                 }else if(c) {
                     //30
                     Verification verification = new Verification();
-                    verification.Loop(key, 0, 50);
+                    verification.Loop(key, 1, 50);
                     // 设置按钮显示效果
                     UIManager.put("OptionPane.buttonFont", new FontUIResource(new Font("宋体", Font.PLAIN, 20)));
                     // 设置文本显示效果
@@ -104,7 +102,7 @@ public class MainWindow extends JFrame {
                 }else{
                     //第一张
                     Verification verification = new Verification();
-                    verification.Loop(key, 0, 1);
+                    verification.Loop(key, 1, 1);
                     // 设置按钮显示效果
                     UIManager.put("OptionPane.buttonFont", new FontUIResource(new Font("宋体", Font.PLAIN, 20)));
                     // 设置文本显示效果
