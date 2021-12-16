@@ -15,24 +15,14 @@ public class Verification {
     }
 
     public void Loop(String name, int start, int end){
-        int len = 0;
+        int len = 30;
         int gsm = 100;
-        String[] gsm3 = new String[4];
-        gsm3[1] = "64";
-        gsm3[2] = "3c";
-        gsm3[3] = "50";
-
         for(int i = start; i <= end; i++) {
-            if(i <= 3) {
-                String strurl = "https://image.baidu.com/search/flip?tn=baiduimage&ie=utf-8&word=" + name +"&pn="+ len + "&gsm=" + gsm3[i] + "&ct=&ic=0&lm=-1&width=0&height=0";
-                len += 20;
-                this.VerificationGo(strurl, name);
-            }else {
-                String strurl = "https://image.baidu.com/search/flip?tn=baiduimage&ie=utf-8&word=" + name +"&pn="+ len + "&gsm=" + Integer.toHexString(gsm) + "&ct=&ic=0&lm=-1&width=0&height=0";
-                len += 20;
-                gsm += 20;
-                this.VerificationGo(strurl, name);
-            }
+            String strHex = Integer.toHexString(len);
+            String strurl = "https://image.baidu.com/search/acjson?tn=resultjson_com&logid=11090229382212595182&ipn=rj&ct=201326592&is=&fp=result&fr=ala&word=" + name +"&queryWord=" + name + "87&cl=2&lm=-1&ie=utf-8&oe=utf-8&adpicid=&st=&z=&ic=&hd=&latest=&copyright=&s=&se=&tab=&width=&height=&face=&istype=&qc=&nc=&expermode=&nojc=&isAsync=&pn=" + len +"&rn=30&gsm="+ strHex + "";
+            len += 30;
+            this.VerificationGo(strurl, name);
+
            // String strurl = "https://image.baidu.com/search/flip?tn=baiduimage&ie=utf-8&word=" + name +"&pn=" + len;
 
 
